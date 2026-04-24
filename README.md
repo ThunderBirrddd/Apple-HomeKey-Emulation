@@ -1,4 +1,4 @@
-# 🔐⚡ Apple Home Key Emulation (Zero-Latency NFC Access)
+# 🔐⚡ Apple HomeKey Emulation (Zero-Latency NFC Access)
 
 > An enterprise-grade, custom-engineered secure access control system that natively interacts with Apple Wallet executing cryptographic validation and triggering physical relays in under 150 milliseconds.
 
@@ -58,22 +58,22 @@ The entire handshake from field detection to relay trigger completes in **under 
 │                                           │
 │  ┌─────────────────────────────────────┐  │
 │  │      IRAM_ATTR ISR Handler          │  │
-│  │  (Pinned to IRAM zero flash       │  │
+│  │  (Pinned to IRAM zero flash         │  │
 │  │   latency on trigger)               │  │
 │  └──────────────┬──────────────────────┘  │
-│                 │ GPIO Interrupt           │
-│                 │ (Rising Edge)            │
+│                 │ GPIO Interrupt          │
+│                 │ (Rising Edge)           │
 │  ┌──────────────┴──────────────────────┐  │
 │  │        PN532 IRQ Pin → GPIO         │  │
 │  │  (Hardware interrupt, no polling)   │  │
 │  └──────────────┬──────────────────────┘  │
-│                 │                          │
+│                 │                         │
 │  ┌──────────────┴──────────────────────┐  │
 │  │         SPI Bus (Full Duplex)       │  │
-│  │  MOSI / MISO / SCK / SS            │  │
-│  │  Clock: 1MHz noise-optimized     │  │
+│  │  MOSI / MISO / SCK / SS             │  │
+│  │  Clock: 1MHz noise-optimized        │  │
 │  └──────────────┬──────────────────────┘  │
-│                 │                          │
+│                 │                         │
 │  ┌──────────────┴──────────────────────┐  │
 │  │       Response Pipeline             │  │
 │  │  ├── SHA-256 Hash Validation        │  │
